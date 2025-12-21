@@ -1,0 +1,8 @@
+{
+  "firstNames": {
+    "male": ["Chukwuemeka", "Oluwaseun", "Adebayo", "Emeka", "Tunde"],
+    "female": ["Chidinma", "Ngozi", "Adaeze", "Folake", "Yetunde"],
+    "neutral": []
+  },
+  "lastNames": ["Okonkwo", "Adeyemi", "Okafor", "Nnamdi", "Balogun"]
+}

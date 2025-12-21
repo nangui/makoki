@@ -1,0 +1,47 @@
+{
+  "firstNames": {
+    "male": [
+      "Amadou",
+      "Moussa",
+      "Ibrahima",
+      "Ousmane",
+      "Abdoulaye",
+      "Mamadou",
+      "Ousmane",
+      "Souleymane",
+      "Sidy",
+      "Moussa",
+      "Thierno",
+      "Samba"
+    ],
+    "female": [
+      "Fatou",
+      "Aminata",
+      "Mariama",
+      "Aïssatou",
+      "Khady",
+      "Awa",
+      "Adja",
+      "Fatima",
+      "Daro",
+      "Maimouna",
+      "Sokhna",
+      "Sadio"
+    ],
+    "neutral": []
+  },
+  "lastNames": [
+    "Diallo",
+    "Ndiaye",
+    "Fall",
+    "Sow",
+    "Ba",
+    "Kane",
+    "Traore",
+    "Sarr",
+    "Sene",
+    "Diop",
+    "Mbaye",
+    "Mane"
+  ]
+}

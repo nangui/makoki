@@ -1,0 +1,46 @@
+{
+  "regions": [
+    { "code": "DK", "name": "Dakar" },
+    { "code": "DB", "name": "Diourbel" },
+    { "code": "FK", "name": "Fatick" },
+    { "code": "KF", "name": "Kaffrine" },
+    { "code": "KL", "name": "Kaolack" },
+    { "code": "KD", "name": "Kolda" },
+    { "code": "KG", "name": "Kédougou" },
+    { "code": "LG", "name": "Louga" },
+    { "code": "MT", "name": "Matam" },
+    { "code": "SL", "name": "Saint-Louis" },
+    { "code": "SD", "name": "Sédhiou" },
+    { "code": "TC", "name": "Tambacounda" },
+    { "code": "TH", "name": "Thiès" },
+    { "code": "ZG", "name": "Ziguinchor" }
+  ],
+  "cities": [
+    "Dakar",
+    "Pikine",
+    "Guédiawaye",
+    "Rufisque",
+    "Thiès",
+    "Touba",
+    "Kaolack",
+    "Mbour",
+    "Saint-Louis",
+    "Ziguinchor",
+    "Diourbel",
+    "Louga",
+    "Tambacounda",
+    "Kolda",
+    "Matam",
+    "Kaffrine",
+    "Fatick",
+    "Kédougou",
+    "Sédhiou",
+    "Richard-Toll"
+  ],
+  "streetPatterns": [
+    "{number} Avenue {name}",
+    "{number} Rue {name}",
+    "Boulevard {name}",
+    "Quartier {name}"
+  ]
+}

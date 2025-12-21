@@ -1,0 +1,41 @@
+{
+  "regions": [
+    { "code": "EC", "name": "Eastern Cape" },
+    { "code": "FS", "name": "Free State" },
+    { "code": "GP", "name": "Gauteng" },
+    { "code": "KZN", "name": "KwaZulu-Natal" },
+    { "code": "LP", "name": "Limpopo" },
+    { "code": "MP", "name": "Mpumalanga" },
+    { "code": "NW", "name": "North West" },
+    { "code": "NC", "name": "Northern Cape" },
+    { "code": "WC", "name": "Western Cape" }
+  ],
+  "cities": [
+    "Johannesburg",
+    "Cape Town",
+    "Durban",
+    "Pretoria",
+    "Port Elizabeth",
+    "Bloemfontein",
+    "East London",
+    "Nelspruit",
+    "Kimberley",
+    "Polokwane",
+    "Pietermaritzburg",
+    "Rustenburg",
+    "George",
+    "Stellenbosch",
+    "Soweto",
+    "Sandton",
+    "Centurion",
+    "Midrand",
+    "Umhlanga",
+    "Ballito"
+  ],
+  "streetPatterns": [
+    "{number} {name} Street",
+    "{number} {name} Road",
+    "{number} {name} Avenue",
+    "{number} {name} Drive"
+  ]
+}

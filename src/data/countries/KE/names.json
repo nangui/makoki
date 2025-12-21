@@ -1,0 +1,8 @@
+{
+  "firstNames": {
+    "male": ["Kamau", "Otieno", "Kipchoge", "Mwangi", "Ochieng"],
+    "female": ["Wanjiku", "Akinyi", "Njeri", "Wambui", "Atieno"],
+    "neutral": []
+  },
+  "lastNames": ["Kamau", "Odhiambo", "Mwangi", "Kiptoo", "Njoroge"]
+}

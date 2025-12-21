@@ -1,0 +1,8 @@
+{
+  "firstNames": {
+    "male": ["Thabo", "Sipho", "Mandla", "Bongani", "Themba"],
+    "female": ["Naledi", "Nomvula", "Thandiwe", "Lerato", "Zanele"],
+    "neutral": []
+  },
+  "lastNames": ["Mbeki", "Zuma", "Dlamini", "Nkosi", "Mthembu"]
+}

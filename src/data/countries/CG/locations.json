@@ -1,0 +1,39 @@
+{
+  "regions": [
+    { "code": "BZ", "name": "Bouenza" },
+    { "code": "BR", "name": "Brazzaville" },
+    { "code": "CV", "name": "Cuvette" },
+    { "code": "CO", "name": "Cuvette-Ouest" },
+    { "code": "KO", "name": "Kouilou" },
+    { "code": "LK", "name": "Likouala" },
+    { "code": "LE", "name": "Lékoumou" },
+    { "code": "NI", "name": "Niari" },
+    { "code": "PL", "name": "Plateaux" },
+    { "code": "PN", "name": "Pointe-Noire" },
+    { "code": "PO", "name": "Pool" },
+    { "code": "SA", "name": "Sangha" }
+  ],
+  "cities": [
+    "Brazzaville",
+    "Pointe-Noire",
+    "Dolisie",
+    "Nkayi",
+    "Impfondo",
+    "Ouesso",
+    "Madingou",
+    "Owando",
+    "Sibiti",
+    "Kinkala",
+    "Mossendjo",
+    "Loutété",
+    "Gamboma",
+    "Makoua",
+    "Ewo"
+  ],
+  "streetPatterns": [
+    "{number} Avenue {name}",
+    "{number} Rue {name}",
+    "Boulevard {name}",
+    "Quartier {name}"
+  ]
+}

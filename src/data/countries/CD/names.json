@@ -1,0 +1,41 @@
+{
+  "firstNames": {
+    "male": [
+      "Patient",
+      "Fiston",
+      "Héritier",
+      "Gloire",
+      "Jonathan",
+      "Junior",
+      "Exaucé",
+      "Christian",
+      "Olivier",
+      "Patrick"
+    ],
+    "female": [
+      "Grâce",
+      "Merveille",
+      "Noëlla",
+      "Esther",
+      "Rachel",
+      "Dorcas",
+      "Gloire",
+      "Alliance",
+      "Divine",
+      "Bénie"
+    ],
+    "neutral": ["Gloire", "Grâce"]
+  },
+  "lastNames": [
+    "Kabila",
+    "Tshisekedi",
+    "Mobutu",
+    "Lumumba",
+    "Katumbi",
+    "Bemba",
+    "Kamerhe",
+    "Mutombo",
+    "Dikembe",
+    "Nzuzi"
+  ]
+}

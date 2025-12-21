@@ -1,0 +1,30 @@
+{
+  "firstNames": {
+    "male": [
+      "Ahmed",
+      "Mohamed",
+      "Omar",
+      "Hassan",
+      "Mahmoud",
+      "Youssef",
+      "Mohsen",
+      "Ismail",
+      "Ayman",
+      "Yasser"
+    ],
+    "female": ["Fatma", "Nour", "Salma", "Hana", "Mona", "Amina", "Hala", "Nadia", "Rania", "Sara"],
+    "neutral": []
+  },
+  "lastNames": [
+    "Hassan",
+    "Ibrahim",
+    "Ali",
+    "Mohamed",
+    "Abdel-Rahman",
+    "El-Sayed",
+    "El-Feky",
+    "El-Baz",
+    "El-Sayed",
+    "El-Feky"
+  ]
+}
