@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/nangui/makoki/discussions
+    about: Ask questions and share ideas with the community
+  - name: 📚 Documentation
+    url: https://github.com/nangui/makoki#readme
+    about: Read the documentation before opening an issue
+
