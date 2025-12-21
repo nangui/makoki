@@ -77,7 +77,7 @@ pnpm build
 | 🇰🇪 Kenya                            | ✅    | ✅     | ✅    | ✅      |
 | 🇿🇦 South Africa                     | ✅    | ✅     | ✅    | ✅      |
 | 🇪🇬 Egypt                            | ✅    | ✅     | ✅    | ✅      |
-| 🇨🇬 Repuvlic of the Congo            | 🔜    | 🔜     | 🔜    | 🔜      |
+| 🇨🇬 Republic of the Congo            | 🔜    | 🔜     | 🔜    | 🔜      |
 | 🇨🇩 Democratic Republic of the Congo | 🔜    | 🔜     | 🔜    | 🔜      |
 | 🇩🇿 Algeria                          | 🔜    | 🔜     | 🔜    | 🔜      |
 | 🇬🇭 Ghana                            | 🔜    | 🔜     | 🔜    | 🔜      |
