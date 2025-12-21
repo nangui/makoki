@@ -46,3 +46,6 @@ coverage/
 *.pem
 *.zip
 
+# Vite cache
+.vite/
+
