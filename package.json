@@ -1,0 +1,79 @@
+{
+  "name": "makoki-test",
+  "version": "1.0.0",
+  "description": "Smart African test data generator Chrome extension",
+  "author": "Adonai NANGUI",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx",
+    "format": "prettier --write .",
+    "typecheck": "vue-tsc --noEmit",
+    "prepare": "husky",
+    "build:chrome": "npm run build && npm run package:chrome",
+    "build:firefox": "npm run build && npm run package:firefox",
+    "package:chrome": "node scripts/package-chrome.js",
+    "package:firefox": "node scripts/package-firefox.js"
+  },
+  "dependencies": {
+    "archiver": "^6.0.1"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.21",
+    "@eslint/js": "^9.39.2",
+    "@types/archiver": "^6.0.2",
+    "@types/chrome": "^0.0.260",
+    "@types/node": "^20.11.5",
+    "@typescript-eslint/eslint-plugin": "^8.50.0",
+    "@typescript-eslint/parser": "^8.50.0",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "@vitest/ui": "^1.2.1",
+    "@vue/compiler-sfc": "^3.4.15",
+    "@vue/test-utils": "^2.4.3",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^9.39.2",
+    "eslint-plugin-vue": "^9.20.1",
+    "happy-dom": "^13.3.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "postcss": "^8.4.33",
+    "prettier": "^3.2.4",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vitest": "^1.2.1",
+    "vue": "^3.4.15",
+    "vue-tsc": "^3.2.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nangui/makoki.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "test-data",
+    "africa",
+    "developer-tools",
+    "vue3",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
