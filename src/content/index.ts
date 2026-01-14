@@ -4,6 +4,7 @@
 
 import type { CountryCode, Gender } from '../types'
 import { generate, type DataType } from '../generators'
+import { logger } from '../lib/logger'
 
 // Store the currently focused element
 let focusedElement: HTMLInputElement | HTMLTextAreaElement | null = null
@@ -37,7 +38,7 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     handleGenerateData(message.dataType)
       .then(() => sendResponse({ success: true }))
       .catch(error => {
-        console.error('Makoki Test: Error generating data', error)
+        logger.error('Makoki Test: Error generating data', error)
         sendResponse({ success: false, error: error.message })
       })
     return true // Keep channel open for async response
@@ -50,7 +51,7 @@ async function handleGenerateData(dataType: string) {
   const element = focusedElement || (document.activeElement as HTMLInputElement)
 
   if (!element || !isEditableElement(element)) {
-    console.warn('Makoki Test: No editable element focused')
+    logger.warn('Makoki Test: No editable element focused')
     return
   }
 
@@ -62,7 +63,7 @@ async function handleGenerateData(dataType: string) {
     const mappedDataType = mapDataType(dataType)
 
     if (!mappedDataType) {
-      console.warn(`Makoki Test: Unknown data type: ${dataType}`)
+      logger.warn(`Makoki Test: Unknown data type: ${dataType}`)
       return
     }
 
@@ -78,7 +79,7 @@ async function handleGenerateData(dataType: string) {
       showNotification(`✓ ${getDataTypeLabel(mappedDataType)} generated`)
     }
   } catch (error) {
-    console.error('Makoki Test: Error generating data', error)
+    logger.error('Makoki Test: Error generating data', error)
     showNotification('✗ Generation failed', true)
   }
 }
@@ -223,6 +224,6 @@ function showNotification(message: string, isError = false) {
   }, 2000)
 }
 
-console.log('🧠 Makoki Test: Content script loaded - Authentic African data ready!')
+logger.log('🧠 Makoki Test: Content script loaded - Authentic African data ready!')
 
 export {}

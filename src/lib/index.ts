@@ -13,3 +13,5 @@ export {
   clearDataCache,
   preloadAllCountries,
 } from './data-loader'
+
+export { logger } from './logger'
