@@ -2,10 +2,13 @@
 
 > Smart African test data generator for developers
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+[![GitHub release](https://img.shields.io/github/v/release/nangui/makoki?include_prereleases)](https://github.com/nangui/makoki/releases)
+[![License](https://img.shields.io/github/license/nangui/makoki)](https://github.com/nangui/makoki/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/nangui/makoki)](https://github.com/nangui/makoki/issues)
+[![GitHub stars](https://img.shields.io/github/stars/nangui/makoki)](https://github.com/nangui/makoki/stargazers)
 ![Chrome](https://img.shields.io/badge/Chrome-Manifest%20V3-orange.svg)
 ![Vue](https://img.shields.io/badge/Vue.js-3.4-brightgreen.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)
 
 Generate authentic African test data with one click! Makoki Test is a Chrome/Firefox extension that helps developers fill forms with realistic African names, addresses, and phone numbers instead of generic "John Doe" and "123 Main Street".
 
@@ -23,24 +26,28 @@ Generate authentic African test data with one click! Makoki Test is a Chrome/Fir
 ## 🚀 Quick Start
 
 ### Install from Chrome Web Store
+
 ```
-Coming soon! 
+Coming soon!
 ```
 
 ### Install from Source
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/nangui/makoki.git
 cd makoki
 ```
 
 2. Install dependencies:
+
 ```bash
 pnpm install
 ```
 
 3. Build the extension:
+
 ```bash
 pnpm build
 ```
@@ -63,21 +70,21 @@ pnpm build
 
 ## 🌍 Supported Countries
 
-| Country | Names | Cities | Phone | Address |
-|---------|-------|--------|-------|---------|
-| 🇸🇳 Senegal | ✅ | ✅ | ✅ | ✅ |
-| 🇳🇬 Nigeria | ✅ | ✅ | ✅ | ✅ |
-| 🇰🇪 Kenya | ✅ | ✅ | ✅ | ✅ |
-| 🇿🇦 South Africa | ✅ | ✅ | ✅ | ✅ |
-| 🇪🇬 Egypt | ✅ | ✅ | ✅ | ✅ |
-| 🇨🇬 Repuvlic of the Congo | 🔜 | 🔜 | 🔜 | 🔜 |
-| 🇨🇩 Democratic Republic of the Congo | 🔜 | 🔜 | 🔜 | 🔜 |
-| 🇩🇿 Algeria | 🔜 | 🔜 | 🔜 | 🔜 |
-| 🇬🇭 Ghana | 🔜 | 🔜 | 🔜 | 🔜 |
-| 🇨🇮 Côte d'Ivoire | 🔜 | 🔜 | 🔜 | 🔜 |
-| 🇨🇲 Cameroon | 🔜 | 🔜 | 🔜 | 🔜 |
-| 🇹🇳 Tunisia | 🔜 | 🔜 | 🔜 | 🔜 |
-| 🇲🇦 Morocco | 🔜 | 🔜 | 🔜 | 🔜 |
+| Country                             | Names | Cities | Phone | Address |
+| ----------------------------------- | ----- | ------ | ----- | ------- |
+| 🇸🇳 Senegal                          | ✅    | ✅     | ✅    | ✅      |
+| 🇳🇬 Nigeria                          | ✅    | ✅     | ✅    | ✅      |
+| 🇰🇪 Kenya                            | ✅    | ✅     | ✅    | ✅      |
+| 🇿🇦 South Africa                     | ✅    | ✅     | ✅    | ✅      |
+| 🇪🇬 Egypt                            | ✅    | ✅     | ✅    | ✅      |
+| 🇨🇬 Republic of the Congo            | 🔜    | 🔜     | 🔜    | 🔜      |
+| 🇨🇩 Democratic Republic of the Congo | 🔜    | 🔜     | 🔜    | 🔜      |
+| 🇩🇿 Algeria                          | 🔜    | 🔜     | 🔜    | 🔜      |
+| 🇬🇭 Ghana                            | 🔜    | 🔜     | 🔜    | 🔜      |
+| 🇨🇮 Côte d'Ivoire                    | 🔜    | 🔜     | 🔜    | 🔜      |
+| 🇨🇲 Cameroon                         | 🔜    | 🔜     | 🔜    | 🔜      |
+| 🇹🇳 Tunisia                          | 🔜    | 🔜     | 🔜    | 🔜      |
+| 🇲🇦 Morocco                          | 🔜    | 🔜     | 🔜    | 🔜      |
 
 ## 🛠️ Development
 
@@ -154,6 +161,7 @@ We welcome contributions! Especially:
 ## 🔒 Privacy
 
 Makoki Test is 100% private:
+
 - ✅ No data collection
 - ✅ No analytics
 - ✅ No external API calls
@@ -167,6 +175,7 @@ MIT License - see [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Adonai NANGUI**
+
 - GitHub: [@nangui](https://github.com/nangui)
 - LinkedIn: [Adonai NANGUI](https://www.linkedin.com/in/adonai-nangui)
 

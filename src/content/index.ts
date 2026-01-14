@@ -1,7 +1,10 @@
 // Makoki Test - Content Script
 // This script runs on web pages and handles form filling
+// 100% curated African data - No external dependencies
 
-import type { CountryCode, GeneratorConfig } from '../types'
+import type { CountryCode, Gender } from '../types'
+import { generate, type DataType } from '../generators'
+import { logger } from '../lib/logger'
 
 // Store the currently focused element
 let focusedElement: HTMLInputElement | HTMLTextAreaElement | null = null
@@ -33,7 +36,12 @@ document.addEventListener(
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message.type === 'GENERATE_DATA') {
     handleGenerateData(message.dataType)
-    sendResponse({ success: true })
+      .then(() => sendResponse({ success: true }))
+      .catch(error => {
+        logger.error('Makoki Test: Error generating data', error)
+        sendResponse({ success: false, error: error.message })
+      })
+    return true // Keep channel open for async response
   }
   return true
 })
@@ -43,21 +51,66 @@ async function handleGenerateData(dataType: string) {
   const element = focusedElement || (document.activeElement as HTMLInputElement)
 
   if (!element || !isEditableElement(element)) {
-    console.warn('Makoki Test: No editable element focused')
+    logger.warn('Makoki Test: No editable element focused')
     return
   }
 
   try {
     // Get settings from storage
     const settings = await getSettings()
-    const data = await generateData(dataType, settings)
+
+    // Map context menu data type to generator data type
+    const mappedDataType = mapDataType(dataType)
+
+    if (!mappedDataType) {
+      logger.warn(`Makoki Test: Unknown data type: ${dataType}`)
+      return
+    }
+
+    // Generate data using Makoki generators
+    const data = await generate({
+      country: settings.country,
+      gender: settings.gender,
+      dataType: mappedDataType,
+    })
 
     if (data) {
       fillElement(element, data)
+      showNotification(`✓ ${getDataTypeLabel(mappedDataType)} generated`)
     }
   } catch (error) {
-    console.error('Makoki Test: Error generating data', error)
+    logger.error('Makoki Test: Error generating data', error)
+    showNotification('✗ Generation failed', true)
   }
+}
+
+// Map context menu data type to generator DataType
+function mapDataType(dataType: string): DataType | null {
+  const mapping: Record<string, DataType> = {
+    name: 'name',
+    firstname: 'firstname',
+    lastname: 'lastname',
+    phone: 'phone',
+    email: 'email',
+    city: 'city',
+    address: 'address',
+  }
+  return mapping[dataType] || null
+}
+
+// Get human-readable label for data type
+function getDataTypeLabel(dataType: DataType): string {
+  const labels: Record<DataType, string> = {
+    name: 'Full Name',
+    firstname: 'First Name',
+    lastname: 'Last Name',
+    phone: 'Phone Number',
+    email: 'Email',
+    city: 'City',
+    address: 'Address',
+    region: 'Region',
+  }
+  return labels[dataType] || dataType
 }
 
 // Check if element is editable
@@ -65,8 +118,14 @@ function isEditableElement(element: Element): element is HTMLInputElement | HTML
   return element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement
 }
 
+// Settings interface
+interface Settings {
+  country: CountryCode
+  gender: Gender
+}
+
 // Get settings from storage via background script
-async function getSettings(): Promise<GeneratorConfig> {
+async function getSettings(): Promise<Settings> {
   return new Promise(resolve => {
     chrome.runtime.sendMessage({ type: 'GET_SETTINGS' }, response => {
       resolve({
@@ -77,98 +136,94 @@ async function getSettings(): Promise<GeneratorConfig> {
   })
 }
 
-// Generate data based on type and settings
-async function generateData(dataType: string, config: GeneratorConfig): Promise<string | null> {
-  // TODO: Import generators dynamically based on country
-  // For now, use placeholder data
-
-  const placeholders: Record<string, Record<CountryCode, string>> = {
-    name: {
-      SN: 'Amadou Diallo',
-      NG: 'Chukwuemeka Okonkwo',
-      KE: 'Wanjiku Kamau',
-      ZA: 'Thabo Mbeki',
-      EG: 'Ahmed Hassan',
-      CG: 'Serge Moukoko',
-      CD: 'Patient Kabila',
-    },
-    firstname: {
-      SN: 'Amadou',
-      NG: 'Chukwuemeka',
-      KE: 'Wanjiku',
-      ZA: 'Thabo',
-      EG: 'Ahmed',
-      CG: 'Serge',
-      CD: 'Patient',
-    },
-    lastname: {
-      SN: 'Diallo',
-      NG: 'Okonkwo',
-      KE: 'Kamau',
-      ZA: 'Mbeki',
-      EG: 'Hassan',
-      CG: 'Moukoko',
-      CD: 'Kabila',
-    },
-    phone: {
-      SN: '+221 77 123 45 67',
-      NG: '+234 801 234 5678',
-      KE: '+254 712 345 678',
-      ZA: '+27 82 123 4567',
-      EG: '+20 10 1234 5678',
-      CG: '+242 06 123 45 67',
-      CD: '+243 81 234 5678',
-    },
-    email: {
-      SN: 'amadou.diallo@example.com',
-      NG: 'chukwu.okonkwo@example.com',
-      KE: 'wanjiku.kamau@example.com',
-      ZA: 'thabo.mbeki@example.com',
-      EG: 'ahmed.hassan@example.com',
-      CG: 'serge.moukoko@example.com',
-      CD: 'patient.kabila@example.com',
-    },
-    city: {
-      SN: 'Dakar',
-      NG: 'Lagos',
-      KE: 'Nairobi',
-      ZA: 'Johannesburg',
-      EG: 'Cairo',
-      CG: 'Brazzaville',
-      CD: 'Kinshasa',
-    },
-    address: {
-      SN: '12 Avenue Cheikh Anta Diop, Dakar',
-      NG: '42 Victoria Island, Lagos',
-      KE: '15 Kenyatta Avenue, Nairobi',
-      ZA: '88 Nelson Mandela Square, Johannesburg',
-      EG: '23 Tahrir Square, Cairo',
-      CG: '15 Avenue Amilcar Cabral, Brazzaville',
-      CD: '28 Boulevard du 30 Juin, Kinshasa',
-    },
-  }
-
-  const countryData = placeholders[dataType]
-  return countryData?.[config.country] || null
-}
-
 // Fill element with generated data
 function fillElement(element: HTMLInputElement | HTMLTextAreaElement, value: string) {
   // Set value
   element.value = value
 
-  // Dispatch events to trigger any listeners
+  // Dispatch events to trigger any listeners (important for React, Vue, etc.)
   element.dispatchEvent(new Event('input', { bubbles: true }))
   element.dispatchEvent(new Event('change', { bubbles: true }))
 
-  // Visual feedback
+  // Visual feedback with Makoki brand color
   const originalBg = element.style.backgroundColor
-  element.style.backgroundColor = '#d4edda'
+  const originalTransition = element.style.transition
+  element.style.transition = 'background-color 0.3s ease'
+  element.style.backgroundColor = '#d4edda' // Light green
+
   setTimeout(() => {
     element.style.backgroundColor = originalBg
+    setTimeout(() => {
+      element.style.transition = originalTransition
+    }, 300)
   }, 500)
 }
 
-console.log('Makoki Test: Content script loaded')
+// Show a subtle notification
+function showNotification(message: string, isError = false) {
+  // Remove existing notification if any
+  const existing = document.getElementById('makoki-notification')
+  if (existing) {
+    existing.remove()
+  }
+
+  // Create notification element
+  const notification = document.createElement('div')
+  notification.id = 'makoki-notification'
+  notification.textContent = message
+  notification.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background: ${isError ? '#dc3545' : '#10b981'};
+    color: white;
+    border-radius: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 999999;
+    animation: makoki-slide-in 0.3s ease;
+  `
+
+  // Add animation styles
+  const style = document.createElement('style')
+  style.textContent = `
+    @keyframes makoki-slide-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes makoki-slide-out {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+  `
+  document.head.appendChild(style)
+  document.body.appendChild(notification)
+
+  // Remove after 2 seconds
+  setTimeout(() => {
+    notification.style.animation = 'makoki-slide-out 0.3s ease forwards'
+    setTimeout(() => {
+      notification.remove()
+      style.remove()
+    }, 300)
+  }, 2000)
+}
+
+logger.log('🧠 Makoki Test: Content script loaded - Authentic African data ready!')
 
 export {}

@@ -1,8 +1,10 @@
 export type CountryCode = 'SN' | 'NG' | 'KE' | 'ZA' | 'EG' | 'CG' | 'CD'
 
+export type Gender = 'male' | 'female' | 'neutral'
+
 export interface GeneratorConfig {
   country: CountryCode
-  gender?: 'male' | 'female' | 'neutral'
+  gender?: Gender
 }
 
 export interface CountryData {

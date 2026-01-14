@@ -5,7 +5,16 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    ignores: ['dist/**', 'node_modules/**', '*.config.js', '*.config.ts', '**/*.vue', 'scripts/**'],
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      '.vite/**',
+      '*.config.js',
+      '*.config.ts',
+      '**/*.vue',
+      'scripts/**',
+      'releases/**',
+    ],
   },
   {
     files: ['**/*.ts'],

@@ -2,6 +2,7 @@
 // This script runs in the background and handles context menu and messaging
 
 import type { CountryCode } from '../types'
+import { logger } from '../lib/logger'
 
 // Create context menu when extension is installed
 chrome.runtime.onInstalled.addListener(() => {
@@ -76,7 +77,7 @@ chrome.runtime.onInstalled.addListener(() => {
     contexts: ['editable'],
   })
 
-  console.log('Makoki Test: Context menus created')
+  logger.log('Makoki Test: Context menus created')
 })
 
 // Handle context menu clicks
